@@ -3,8 +3,8 @@ import time
 import asyncio
 from Api_Test import YoutubeAPI
 
-YoutubeName = 'UCsLiV4WJfkTEHH0b9PmRklw'
-GOOGLE_API = 'AIzaSyAfr8pZMNfi8_btzWQ7A0pQEOKbQTlTPvY'
+YoutubeName = 'name'
+GOOGLE_API = 'your google api'
 
 print('Collecting Data for: {}'.format(YoutubeName))
 api = YoutubeAPI(GOOGLE_API, YoutubeName)
