@@ -18,7 +18,7 @@ class YoutubeAPI:
         self.videosData = self.getVideosData(self.data)
 
     def setPlaylistID(self):
-        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={}&key={}'.format(self.YouTubeName, self.GOOGLE_API)))
+        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={}&key={}'.format(self.YouTubeName, self.GOOGLE_API)))
         return data['items'][0]['contentDetails']['relatedPlaylists']['uploads']
 
     def getPlaylistData(self):
