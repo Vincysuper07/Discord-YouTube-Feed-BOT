@@ -3,8 +3,8 @@ import time
 import asyncio
 from Api_Test import Youtuber
 
-YoutubeName = 'mujdii'
-GOOGLE_API = 'AIzaSyAfr8pZMNfi8_btzWQ7A0pQEOKbQTlTPvY'
+YoutubeName = 'youtuber name'
+GOOGLE_API = 'google api key'
 pingEveryXMinutes = 1 # Minutes to wait until next ping. Under 1 min NOT RECOMMENDED.
 
 print('{} >> Collecting Data for {} '.format(time.strftime("%H:%M:%S"), YoutubeName))
@@ -40,4 +40,4 @@ async def on_ready():
     await client.send_message(client.get_channel('273549788283142166'), 'YouTube Feed BOT >> Now showing all live video uploads from {}.'.format(YoutubeName))
     asyncio.ensure_future(update())
 
-client.run('Mjc4OTQxOTA4MDMyNTUyOTYx.C30Z8Q.hZeM7j47BKlmS6Rk2WHZwEfl1zM')
+client.run('discord bot token')
