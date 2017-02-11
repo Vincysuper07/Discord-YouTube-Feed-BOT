@@ -3,7 +3,7 @@ import json
 
 class YoutubeAPI:
 
-    GOOGLE_API = 'AIzaSyAfr8pZMNfi8_btzWQ7A0pQEOKbQTlTPvY'
+    GOOGLE_API = ''
     YouTubeName = ''
     PlaylistID = ''
     data = []
