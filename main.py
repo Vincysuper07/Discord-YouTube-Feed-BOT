@@ -1,7 +1,7 @@
 import discord
 import time
 import asyncio
-from Api_Test import Youtuber
+from Implementation import Youtuber
 
 YoutubeName = 'youtuber name'
 GOOGLE_API = 'google api key'
