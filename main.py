@@ -1,16 +1,18 @@
 import discord
 import time
 import asyncio
-from Api_Test import YoutubeAPI
+from Api_Test import Youtuber
 
-YoutubeName = 'name'
-GOOGLE_API = 'your google api'
+YoutubeName = 'mujdii'
+GOOGLE_API = 'AIzaSyAfr8pZMNfi8_btzWQ7A0pQEOKbQTlTPvY'
+pingEveryXMinutes = 1 # Minutes to wait until next ping. Under 1 min NOT RECOMMENDED.
 
-print('Collecting Data for: {}'.format(YoutubeName))
-api = YoutubeAPI(GOOGLE_API, YoutubeName)
+print('{} >> Collecting Data for {} '.format(time.strftime("%H:%M:%S"), YoutubeName))
+api = Youtuber(GOOGLE_API, YoutubeName, False)
+liveId = ''
 
-print('YouTube Data collected succesfully.')
-print('Starting bot.')
+print('{} >> YouTube Data collected succesfully.'.format(time.strftime("%H:%M:%S")))
+print('{} >> Starting bot.'.format(time.strftime("%H:%M:%S")))
 
 client = discord.Client()
 
@@ -22,16 +24,20 @@ async def update():
             await client.send_message(client.get_channel('273549788283142166'), '{} just posted a new video!'.format(YoutubeName))
             await client.send_message(client.get_channel('273549788283142166'), '{}'.format(api.getVideoLink(api.videosData[0][1])))
 
-        await asyncio.sleep(2 * 60)
+        if api.isUserLive():
+            if not api.liveId == liveId:
+                await client.send_message(client.get_channel('273549788283142166'), '{} is live!'.format(YoutubeName))
+                await client.send_message(client.get_channel('273549788283142166'), '{}'.format(api.getVideoLink(api.getUserLiveData())))
+
+        await asyncio.sleep(pingEveryXMinutes * 60)
 
 @client.event
 async def on_ready():
-    print(time.strftime("%H:%M:%S"))
-    print('Logged in as')
+    print('Logged in as:')
     print(client.user.name)
     print(client.user.id)
-    print('--<><><><><>--')
+    print('---------------------------------------')
     await client.send_message(client.get_channel('273549788283142166'), 'YouTube Feed BOT >> Now showing all live video uploads from {}.'.format(YoutubeName))
     asyncio.ensure_future(update())
 
-client.run('token')
+client.run('Mjc4OTQxOTA4MDMyNTUyOTYx.C30Z8Q.hZeM7j47BKlmS6Rk2WHZwEfl1zM')
