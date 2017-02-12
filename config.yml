@@ -14,6 +14,6 @@ config:
             id: null
             channelID: null
         2:
-            name: null Torso
+            name: null
             id: null
             channelID: null
