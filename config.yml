@@ -6,14 +6,14 @@ config:
         Ping Every x Minutes: 10 # <5 minutes NOT recommended
     YouTubers:
         0:
-            name: pewdiepie
-            id: asdnajwndslad
-            channelID: 0asd98972asd
+            name: null
+            id: null
+            channelID: null
         1:
-            name: jacksepticeye
-            id: asndjlawndsad
-            channelID: 8921sadwadsd
+            name: null
+            id: null
+            channelID: null
         2:
-            name: WebDriver Torso
-            id:
-            channelID: 120832adwasd
+            name: null Torso
+            id: null
+            channelID: null
