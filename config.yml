@@ -1,19 +1,19 @@
 config:
     connection:
-        Google api key: null
-        Discord bot token: null
+        Google api key:
+        Discord bot token:
     main:
         Ping Every x Minutes: 10 # <5 minutes NOT recommended
     YouTubers:
         0:
-            name: null
-            id: null
-            channelID: null
+            name: pewdiepie
+            id: pewdiepie
+            channelID:
         1:
-            name: null
-            id: null
-            channelID: null
+            name: jacksepticeye
+            id: jacksepticeye
+            channelID:
         2:
-            name: null
-            id: null
-            channelID: null
+            name: WebDriver Torso
+            id:
+            channelID: UCsLiV4WJfkTEHH0b9PmRklw

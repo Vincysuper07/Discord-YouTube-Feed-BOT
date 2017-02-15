@@ -1,33 +1,40 @@
 import yaml
+import sys
+
+import random
+import string
 
 class Config():
-    cfg = ''
-    def __init__(self):
+    def __init__(self, fileName):
+
+        global cfg
+
         try:
-            print("Importing config.yml")
-            with open("config.yml", 'r') as ymlfile:
-                self.cfg = yaml.load(ymlfile)
+            with open(fileName, 'r') as ymlfile:
+                cfg = yaml.load(ymlfile)
         except Exception as e:
             print(e)
             input("Press any key to exit the program")
-            exit
+            sys.exit()
 
-        if self.cfg['config']['connection']['Google api key'] == 'None' and self.cfg['config']['connection']['Discord bot token'] == 'None':
+        if not cfg['config']['connection']['Google api key'] and not cfg['config']['connection']['Discord bot token']:
             input('Problem loading Google api key/Discord bot token. Make sure filled the fields')
-            exit
+            sys.exit()
 
-        if len(self.cfg['config']['YouTubers']) == 0:
-            input('There are no youtubers in your list.')
-            exit
-
-        print("config.yml imported succesfully")
+        if self.getYouTubersNr() == 0:
+            input('No YouTubers in list')
+            sys.exit()
 
     def getConnectionData(self):
-        return [self.cfg['config']['connection']['Google api key'], self.cfg['config']['connection']['Discord bot token']]
+        return [cfg['config']['connection']['Google api key'], cfg['config']['connection']['Discord bot token']]
 
     def getPingTime(self):
-        return self.cfg['config']['main']['Ping Every x Minutes']
+        return cfg['config']['main']['Ping Every x Minutes']
 
-config = Config()
+    def getYouTubersList(self):
+        return cfg['config']['YouTubers']
 
-print(config.getConnectionData())
+    def getYouTubersNr(self):
+        if not cfg['config']['YouTubers']:
+            return 0
+        return len(cfg['config']['YouTubers'])
