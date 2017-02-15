@@ -19,10 +19,14 @@ Run the program
 python3 main.py
 ```
 
+### Features
+- Multi Youtuber support
+- Config file (config.yml)
+- Live YouTube Video Updates
+- Livestream updates
+
 ### To-Do List
 - Linux support
 - Better Interface
 - BOT Commands
-- Multi-YouTuber Support
 - Personalized YouTube Feed lists (PM video updates)
-- Config file [50% implemented]
