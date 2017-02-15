@@ -25,4 +25,4 @@ python3 main.py
 - BOT Commands
 - Multi-YouTuber Support
 - Personalized YouTube Feed lists (PM video updates)
-- Config file
+- Config file [50% implemented]
