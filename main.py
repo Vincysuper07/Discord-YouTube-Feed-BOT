@@ -44,6 +44,7 @@ async def update():
                 if not processes[item].liveId == threads[item][3]:
                     await client.send_message(client.get_channel('273549788283142166'), '{} is live!'.format(threads[item][0]))
                     await client.send_message(client.get_channel('273549788283142166'), '{}'.format(processes[item].getVideoLink(processes[item].getUserLiveData())))
+                    threads[item][3] = processes[item].liveId
             item += 1
         await asyncio.sleep(pingEveryXMinutes * 60)
 
