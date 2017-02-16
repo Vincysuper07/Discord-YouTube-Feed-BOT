@@ -1,9 +1,9 @@
 config:
     connection:
-        Google api key:
-        Discord bot token:
+        Google api key: AIzaSyAfr8pZMNfi8_btzWQ7A0pQEOKbQTlTPvY
+        Discord bot token: Mjc4OTQxOTA4MDMyNTUyOTYx.C30Z8Q.hZeM7j47BKlmS6Rk2WHZwEfl1zM
     main:
-        Ping Every x Minutes: 10 # <5 minutes NOT recommended
+        Ping Every x Minutes: 15 # <5 minutes NOT recommended
     YouTubers:
         0:
             name: pewdiepie
