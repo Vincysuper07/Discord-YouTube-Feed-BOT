@@ -32,5 +32,5 @@ python3 main.py
 - Personalized YouTube Feed lists (PM video updates)
 
 ### Changelog
-`15/02/2017 + ` Multi YouTuber Support /n
+`15/02/2017 + ` Multi YouTuber Support  
 `15/02/2017 + ` Configurable file
