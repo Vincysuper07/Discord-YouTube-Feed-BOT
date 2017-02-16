@@ -30,3 +30,7 @@ python3 main.py
 - Better Interface
 - BOT Commands
 - Personalized YouTube Feed lists (PM video updates)
+
+### Changelog
+`15/02/2017 + ` Multi YouTuber Support 
+`15/02/2017 + ` Configurable file
