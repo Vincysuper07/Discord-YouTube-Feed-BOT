@@ -12,11 +12,16 @@ A small Discord BOT that displays live video updates of a YouTube channel, along
 ### Installation
 Install the [Discord.py](https://github.com/Rapptz/discord.py) library.
 ```
-python3 -m pip install -U discord.py
+python3.5 -m pip install -U discord.py
 ```
 Run the program
 ```
-python3 main.py
+python3.5 main.py
+```
+  
+If using linux run:
+```
+python3.5 pip install pyyaml
 ```
 
 ### Features
