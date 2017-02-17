@@ -26,12 +26,12 @@ python3 main.py
 - Livestream updates
 
 ### To-Do List
-- Linux support
 - Better Interface
 - BOT Commands
 - Personalized YouTube Feed lists (PM video updates)
 
 ### Changelog
-`15/02/2017 ! ` fixed livestream support  
+`17/02/2017 + ` added linux support
+`16/02/2017 ! ` fixed livestream support  
 `15/02/2017 + ` Multi YouTuber Support  
 `15/02/2017 + ` Configurable file
