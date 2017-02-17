@@ -37,7 +37,7 @@ A BETTER INSTALLATION GUIDE COMING SOON
 - Personalized YouTube Feed lists (PM video updates)
 
 ### Changelog
-`17/02/2017 + ` added linux support
+`17/02/2017 + ` added linux support 
 `16/02/2017 ! ` fixed livestream support  
 `15/02/2017 + ` Multi YouTuber Support  
 `15/02/2017 + ` Configurable file
