@@ -19,10 +19,11 @@ Run the program
 python3.5 main.py
 ```
   
-If using linux run:
+If using linux install pyyaml using:
 ```
 python3.5 pip install pyyaml
 ```
+A BETTER INSTALLATION GUIDE COMING SOON
 
 ### Features
 - Multi Youtuber support
