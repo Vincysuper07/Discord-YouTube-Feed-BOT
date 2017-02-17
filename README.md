@@ -35,6 +35,7 @@ A BETTER INSTALLATION GUIDE COMING SOON
 - Better Interface
 - BOT Commands
 - Personalized YouTube Feed lists (PM video updates)
+- Exception Handling
 
 ### Changelog
 `17/02/2017 + ` added linux support   
