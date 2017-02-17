@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import codecs
 
 class Youtuber:
 
@@ -11,9 +12,12 @@ class Youtuber:
     global oldVideosData
     global userID
     global liveId
+    global reader
     isID = False
 
     def __init__(self, GOOGLE_API_KEY, User, isID = False):
+
+        self.reader = codecs.getreader('utf-8')
 
         self.GOOGLE_API = GOOGLE_API_KEY
         self.YouTubeName = User
@@ -33,33 +37,33 @@ class Youtuber:
 
         if self.isID: return self.YouTubeName
 
-        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=id&forUsername={}&key={}'.format(
-            self.YouTubeName, self.GOOGLE_API)))
+        data = json.load(self.reader(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=id&forUsername={}&key={}'.format(
+            self.YouTubeName, self.GOOGLE_API))))
         return data['items'][0]['id']
 
     def isUserLive(self):
-        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={}&eventType=live&type=video&key={}'.format(self.getUserID(), self.GOOGLE_API)))
+        data = json.load(self.reader(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={}&eventType=live&type=video&key={}'.format(self.getUserID(), self.GOOGLE_API))))
         if len(data['items']) == 0:
             return False
         return True
 
     def getUserLiveData(self):
-        data = json.load(urllib.request.urlopen(
+        data = json.load(self.reader(urllib.request.urlopen(
             'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={}&eventType=live&type=video&key={}'.format(
-                self.getUserID(), self.GOOGLE_API)))
+                self.getUserID(), self.GOOGLE_API))))
         self.liveId = data['items'][0]['id']['videoId']
         return data['items'][0]['id']['videoId']
 
     def setPlaylistID(self):
         if self.isID:
-            data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={}&key={}'.format(self.YouTubeName, self.GOOGLE_API)))
+            data = json.load(self.reader(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={}&key={}'.format(self.YouTubeName, self.GOOGLE_API))))
             return data['items'][0]['contentDetails']['relatedPlaylists']['uploads']
 
-        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={}&key={}'.format(self.YouTubeName, self.GOOGLE_API)))
+        data = json.load(self.reader(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={}&key={}'.format(self.YouTubeName, self.GOOGLE_API))))
         return data['items'][0]['contentDetails']['relatedPlaylists']['uploads']
 
     def getPlaylistData(self):
-        data = json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId={}&key={}'.format(self.PlaylistID, self.GOOGLE_API)))
+        data = json.load(self.reader(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId={}&key={}'.format(self.PlaylistID, self.GOOGLE_API))))
         return data
 
     def getVideosNrInPlaylist(self):
