@@ -38,7 +38,7 @@ A BETTER INSTALLATION GUIDE COMING SOON
 - Exception Handling
 
 ### Changelog
-`17/02/2017 ! ` exception handling in case of socket error
+`17/02/2017 ! ` exception handling in case of socket error    
 `17/02/2017 + ` added linux support   
 `16/02/2017 ! ` fixed livestream support  
 `15/02/2017 + ` Multi YouTuber Support  
