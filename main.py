@@ -2,7 +2,7 @@ import discord
 import time
 import asyncio
 import sys
-from Implementation import Youtuber
+from Api_Test import Youtuber
 from config import Config
 
 config = Config('config.yml')
@@ -31,21 +31,24 @@ while i < config.getYouTubersNr():
 
 async def update():
     while True:
-        item = 0
-        while item < config.getYouTubersNr():
-            data = processes[item].update()
-            print('{} >> {}'.format(time.strftime("%H:%M:%S"), data))
-            if processes[item].isNewVideo():
-                await client.send_message(client.get_channel('273549788283142166'), '{} just posted a new video!'.format(threads[item][0]))
-                await client.send_message(client.get_channel('273549788283142166'), '{}'.format(processes[item].getVideoLink(processes[item].videosData[0][1])))
+        try:
+            item = 0
+            while item < config.getYouTubersNr():
+                data = processes[item].update()
+                print('{} >> {}'.format(time.strftime("%H:%M:%S"), data))
+                if processes[item].isNewVideo():
+                    await client.send_message(client.get_channel('273549788283142166'), '{} just posted a new video!'.format(threads[item][0]))
+                    await client.send_message(client.get_channel('273549788283142166'), '{}'.format(processes[item].getVideoLink(processes[item].videosData[0][1])))
 
 
-            if processes[item].isUserLive():
-                if not processes[item].liveId == threads[item][3]:
-                    await client.send_message(client.get_channel('273549788283142166'), '{} is live!'.format(threads[item][0]))
-                    await client.send_message(client.get_channel('273549788283142166'), '{}'.format(processes[item].getVideoLink(processes[item].getUserLiveData())))
-                    threads[item][3] = processes[item].liveId
-            item += 1
+                if processes[item].isUserLive():
+                    if not processes[item].liveId == threads[item][3]:
+                        await client.send_message(client.get_channel('273549788283142166'), '{} is live!'.format(threads[item][0]))
+                        await client.send_message(client.get_channel('273549788283142166'), '{}'.format(processes[item].getVideoLink(processes[item].getUserLiveData())))
+                        threads[item][3] = processes[item].liveId
+                item += 1
+        except:
+            pass
         await asyncio.sleep(pingEveryXMinutes * 60)
 
 @client.event
